@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RushandoDrop 2025 | Times</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<!-- Nosso JS -->
+<script defer src="js/times.js"></script>
+<!-- Estilo adicional -->
+<style>
+/* Estilo da aba ativa */
+.active-tab {
+    position: relative;
+    padding-bottom: 4px;
+}
+.active-tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #FFB300, #FF4C4C);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+</style>
+</head>
+<body class="bg-[#1F1F1F] text-[#FFFFFF]">
+
+<!-- Navbar -->
+<header class="bg-[#1F1F1F] text-[#FFFFFF] py-4 fixed top-0 left-0 w-full z-50 shadow-lg">
+    <nav class="container mx-auto flex justify-between items-center px-4">
+        <a href="index.html" class="text-3xl font-bold text-[#FFB300] hover:text-[#FF4C4C] flex items-center space-x-2">
+            <i class="fas fa-home"></i>
+            <span>RushandoDrop</span>
+        </a>
+        <ul class="hidden md:flex space-x-8 items-center">
+            <li>
+                <a href="index.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+            </li>
+            <li>
+                <a href="times.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300 active-tab">
+                    <i class="fas fa-users"></i>
+                    <span>Times</span>
+                </a>
+            </li>
+            <li>
+                <a href="campeonato.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+                    <i class="fas fa-trophy"></i>
+                    <span>Campeonato</span>
+                </a>
+            </li>
+            <li>
+                <a href="tabelas.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+                    <i class="fas fa-table"></i>
+                    <span>Tabelas</span>
+                </a>
+            </li>
+        </ul>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-[#FFB300] hover:text-[#FF4C4C]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <!-- Menu móvel -->
+    <div id="mobile-menu" class="hidden bg-[#1F1F1F] absolute top-16 left-0 w-full shadow-lg z-40">
+        <ul class="flex flex-col space-y-2 p-4">
+            <li><a href="index.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-home"></i><span>Início</span></a></li>
+            <li><a href="times.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2 active-tab"><i class="fas fa-users"></i><span>Times</span></a></li>
+            <li><a href="campeonato.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-trophy"></i><span>Campeonato</span></a></li>
+            <li><a href="tabelas.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-table"></i><span>Tabelas</span></a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- Conteúdo -->
+<main class="container mx-auto p-8 pt-20">
+    <h2 class="text-3xl font-semibold mb-4">Times participantes</h2>
+    <div id="times-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Os cards dos times serão carregados aqui -->
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#1F1F1F] text-[#FFFFFF] py-4 text-center mt-16">
+    <p>© 2025 RushandoDrop. Organização independente.</p>
+</footer>
+
+<!-- Script para menu móvel -->
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
+</script>
+
+</body>
+</html>

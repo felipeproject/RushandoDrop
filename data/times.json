@@ -1,0 +1,28 @@
+{
+  "times": [
+    {
+      "nome": "Time Alpha",
+      "logo": "https://placehold.co/600x400/000000/FFFFFF/png",
+      "capitao": "Jogador1",
+      "participantes": ["Jogador2", "Jogador3", "Jogador4", "Jogador5"]
+    },
+    {
+      "nome": "Time Beta",
+      "logo": "https://placehold.co/600x400/000000/FFFFFF/png",
+      "capitao": "JogadorA",
+      "participantes": ["JogadorB", "JogadorC", "JogadorD", "JogadorE"]
+    },
+    {
+      "nome": "Time Gamma",
+      "logo": "https://placehold.co/600x400/000000/FFFFFF/png",
+      "capitao": "Participante1",
+      "participantes": ["Participante2", "Participante3", "Participante4", "Participante5"]
+    },
+    {
+      "nome": "Time Delta",
+      "logo": "https://placehold.co/600x400/000000/FFFFFF/png",
+      "capitao": "CapitaoD",
+      "participantes": ["Player1", "Player2", "Player3", "Player4"]
+    }
+  ]
+}

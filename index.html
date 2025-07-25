@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RushandoDrop | Início</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Estilo da aba ativa */
+    .active-tab {
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .active-tab::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, #FFB300, #FF4C4C);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://placehold.co/600x400/000000/FFFFFF/png');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      background-color: #FF4C4C;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 1.125rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #FFB300;
+    }
+
+    /* Cards de Times */
+    .card {
+      background-color: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 16px;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFB300;
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Cards de Top Times */
+    .top-time-card {
+      background-color: #1F1F1F;
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .top-time-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .top-time-logo {
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+
+    .top-time-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-time-info span {
+      font-size: 1rem;
+      margin: 2px 0;
+    }
+
+    .top-time-info .top-time-title {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: #FFB300;
+    }
+  </style>
+</head>
+<body class="bg-[#1F1F1F] text-[#FFFFFF]">
+
+<!-- Navbar -->
+<header class="bg-[#1F1F1F] text-[#FFFFFF] py-4 fixed top-0 left-0 w-full z-50 shadow-lg">
+  <nav class="container mx-auto flex justify-between items-center px-4">
+    <a href="index.html" class="text-3xl font-bold text-[#FFB300] hover:text-[#FF4C4C] flex items-center space-x-2">
+      <i class="fas fa-home"></i>
+      <span>RushandoDrop</span>
+    </a>
+    <ul class="hidden md:flex space-x-8 items-center">
+      <li>
+        <a href="index.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300 active-tab">
+          <i class="fas fa-home"></i>
+          <span>Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="times.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-users"></i>
+          <span>Times</span>
+        </a>
+      </li>
+      <li>
+        <a href="campeonato.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-trophy"></i>
+          <span>Campeonato</span>
+        </a>
+      </li>
+      <li>
+        <a href="tabelas.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-table"></i>
+          <span>Tabelas</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>RushandoDrop</h1>
+  <p>Descubra os melhores times, campeonatos e resultados com informações atualizadas constantemente.</p>
+  <button>Saiba Mais</button>
+</section>
+
+<!-- Top 3 Times -->
+<main class="container mx-auto p-8 pt-20">
+  <section id="top-times">
+    <h2 class="text-3xl font-semibold mb-8">Top 3 Times</h2>
+    <div id="top-times-container">
+      <!-- Top 3 Times vão ser carregados dinamicamente aqui -->
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#1F1F1F] text-[#FFFFFF] py-4 text-center mt-16">
+  <p>© 2025 RushandoDrop. Organização independente.</p>
+</footer>
+
+<script>
+  // Função para carregar os Top 3 Times
+  async function loadTopTimes() {
+    const response = await fetch('data/top_times.json');
+    const data = await response.json();
+
+    const topTimesContainer = document.getElementById('top-times-container');
+
+    data.top_times.forEach((time) => {
+      const card = document.createElement('div');
+      card.classList.add('top-time-card');
+      card.innerHTML = `
+        <img class="top-time-logo" src="${time.logo}" alt="Logo do ${time.nome}" />
+        <div class="top-time-info">
+          <div class="top-time-title">${time.nome}</div>
+          <span>Vitórias: ${time.vitorias}</span>
+          <span>Kills: ${time.kills}</span>
+          <span>Dano: ${time.dano}</span>
+        </div>
+      `;
+      topTimesContainer.appendChild(card);
+    });
+  }
+
+  // Carregar os Top 3 Times
+  loadTopTimes();
+</script>
+
+</body>
+</html>

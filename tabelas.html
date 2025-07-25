@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RushandoDrop 2025 | Tabelas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/app.js" defer></script> <!-- Caso tenha scripts adicionais -->
+<link rel="stylesheet" href="css/style.css" />
+<!-- Font Awesome CDN para ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+.active-tab {
+    position: relative;
+}
+.active-tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #FFB300, #FF4C4C);
+    border-radius: 2px;
+}
+</style>
+</head>
+<body class="bg-[#1F1F1F] text-[#FFFFFF]">
+
+<!-- Navbar -->
+<header class="bg-[#1F1F1F] text-[#FFFFFF] py-4 fixed top-0 left-0 w-full z-50 shadow-lg">
+  <nav class="container mx-auto flex justify-between items-center">
+    <a href="index.html" class="text-3xl font-bold text-[#FFB300] hover:text-[#FF4C4C] flex items-center space-x-2">
+      <i class="fas fa-home"></i>
+      <span>RushandoDrop</span>
+    </a>
+    <ul class="hidden md:flex space-x-8 items-center">
+      <li>
+        <a href="index.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-home"></i>
+          <span>Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="times.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-users"></i>
+          <span>Times</span>
+        </a>
+      </li>
+      <li>
+        <a href="campeonato.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-trophy"></i>
+          <span>Campeonato</span>
+        </a>
+      </li>
+      <li>
+        <a href="tabelas.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300 active-tab" id="nav-tabelas">
+          <i class="fas fa-table"></i>
+          <span>Tabelas</span>
+        </a>
+      </li>
+    </ul>
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-[#FFB300] hover:text-[#FF4C4C]">
+        <svg xmlns="http://www.w3.org/200/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <!-- Menu móvel -->
+  <div id="mobile-menu" class="hidden bg-[#1F1F1F] absolute top-16 left-0 w-full shadow-lg z-40">
+    <ul class="flex flex-col space-y-2 p-4">
+      <li><a href="index.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-home"></i><span>Início</span></a></li>
+      <li><a href="times.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-users"></i><span>Times</span></a></li>
+      <li><a href="campeonato.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-trophy"></i><span>Campeonato</span></a></li>
+      <li><a href="tabelas.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2 active-tab"><i class="fas fa-table"></i><span>Tabelas</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Conteúdo -->
+<main class="container mx-auto p-8 pt-20">
+    <h2 class="text-2xl font-semibold mb-4">Tabelas de Classificação</h2>
+    
+    <!-- Exemplo de Tabs para diferentes categorias -->
+    <div class="mb-4 flex space-x-4" id="category-buttons">
+        <button class="px-4 py-2 bg-gray-700 rounded active-tab" data-category="topKills">Top Kills</button>
+        <button class="px-4 py-2 bg-gray-700 rounded" data-category="topDanos">Top Danos</button>
+        <button class="px-4 py-2 bg-gray-700 rounded" data-category="classificacaoDia">Classificação por Dia</button>
+        <button class="px-4 py-2 bg-gray-700 rounded" data-category="jogosDia">Jogos do Dia</button>
+    </div>
+    
+    <!-- Conteúdo das tabelas -->
+    <div id="tables-container" class="overflow-x-auto">
+        <!-- As tabelas serão inseridas aqui via JS -->
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#1F1F1F] text-[#FFFFFF] py-4 text-center mt-16">
+    <p>© 2025 RushandoDrop. Organização independente.</p>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
+
+// Dados de exemplo de tabelas
+const tabelas = {
+    topKills: [
+        { time: 'Time A', kills: 50 },
+        { time: 'Time B', kills: 45 },
+        { time: 'Time C', kills: 40 },
+    ],
+    topDanos: [
+        { time: 'Time A', danos: 120000 },
+        { time: 'Time B', danos: 115000 },
+        { time: 'Time C', danos: 110000 },
+    ],
+    classificacaoDia: {
+        dia1: [
+            { time: 'Time A', pontos: 10 },
+            { time: 'Time B', pontos: 8 },
+        ],
+        dia2: [
+            { time: 'Time A', pontos: 12 },
+            { time: 'Time B', pontos: 9 },
+        ],
+        dia3: [
+            { time: 'Time A', pontos: 14 },
+            { time: 'Time B', pontos: 10 },
+        ],
+        dia4: [
+            { time: 'Time A', pontos: 16 },
+            { time: 'Time B', pontos: 12 },
+        ],
+    },
+    jogosDia: {
+        dia1: [
+            { jogo: 1, classificacao: 'Primeiro', time: 'Time A' },
+            { jogo: 1, classificacao: 'Segundo', time: 'Time B' },
+            { jogo: 1, classificacao: 'Terceiro', time: 'Time C' },
+        ],
+        dia2: [
+            { jogo: 2, classificacao: 'Primeiro', time: 'Time B' },
+            { jogo: 2, classificacao: 'Segundo', time: 'Time A' },
+            { jogo: 2, classificacao: 'Terceiro', time: 'Time C' },
+        ],
+        // Outros dias...
+    }
+};
+
+// Função para criar tabelas
+function criarTabela(headers, dados) {
+    const table = document.createElement('table');
+    table.className = 'min-w-full divide-y divide-gray-600 mb-4';
+
+    const thead = document.createElement('thead');
+    thead.className = 'bg-gray-700';
+    const trHead = document.createElement('tr');
+
+    headers.forEach(h => {
+        const th = document.createElement('th');
+        th.className = 'px-4 py-2 text-left text-sm font-medium';
+        th.innerText = h;
+        trHead.appendChild(th);
+    });
+    thead.appendChild(trHead);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    tbody.className = 'bg-gray-800 divide-y divide-gray-600';
+
+    dados.forEach(row => {
+        const tr = document.createElement('tr');
+        headers.forEach(h => {
+            const td = document.createElement('td');
+            td.className = 'px-4 py-2 text-sm';
+            // Mapear o valor
+            if (h === 'Time') {
+                td.innerText = row.time;
+            } else if (h === 'Kills') {
+                td.innerText = row.kills;
+            } else if (h === 'Danos') {
+                td.innerText = row.danos;
+            } else if (h === 'Pontos') {
+                td.innerText = row.pontos;
+            } else if (h === 'Jogo') {
+                td.innerText = row.jogo;
+            } else if (h === 'Classificação') {
+                td.innerText = row.classificacao;
+            } else if (h === 'Time do Jogo') {
+                td.innerText = row.time;
+            }
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    return table;
+}
+
+// Função para renderizar a tabela com base na categoria
+const tablesContainer = document.getElementById('tables-container');
+
+const categoryButtons = document.querySelectorAll('#category-buttons button');
+
+function renderTabelaCategoria(categoria) {
+    tablesContainer.innerHTML = ''; // Limpa
+    if (categoria === 'topKills') {
+        const table = criarTabela(['Time', 'Kills'], tabelas.topKills);
+        tablesContainer.appendChild(table);
+    } else if (categoria === 'topDanos') {
+        const table = criarTabela(['Time', 'Danos'], tabelas.topDanos);
+        tablesContainer.appendChild(table);
+    } else if (categoria === 'classificacaoDia') {
+        for (const dia in tabelas.classificacaoDia) {
+            const tituloDia = document.createElement('h3');
+            tituloDia.className = 'text-xl font-semibold mb-2 mt-4';
+            tituloDia.innerText = `Classificação - ${dia}`;
+            tablesContainer.appendChild(tituloDia);
+            const data = tabelas.classificacaoDia[dia];
+            const table = criarTabela(['Time', 'Pontos'], data);
+            tablesContainer.appendChild(table);
+        }
+    } else if (categoria === 'jogosDia') {
+        for (const dia in tabelas.jogosDia) {
+            const tituloDia = document.createElement('h3');
+            tituloDia.className = 'text-xl font-semibold mb-2 mt-4';
+            tituloDia.innerText = `Jogos - ${dia}`;
+            tablesContainer.appendChild(tituloDia);
+            const data = tabelas.jogosDia[dia];
+            const table = criarTabela(['Jogo', 'Classificação', 'Time'], data);
+            tablesContainer.appendChild(table);
+        }
+    }
+}
+
+// Evento nos botões
+categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove classe ativa de todos
+        categoryButtons.forEach(b => b.classList.remove('active-tab'));
+        // Adiciona na clicada
+        btn.classList.add('active-tab');
+        renderTabelaCategoria(btn.dataset.category);
+    });
+});
+
+// Inicializa com a primeira categoria
+renderTabelaCategoria('topKills');
+</script>
+
+</body>
+</html>

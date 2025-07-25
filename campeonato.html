@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RushandoDrop 2025 | Campeonatos</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome CDN para ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<!-- Animações (opcional) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+/* Estilo para destaque na aba ativa no menu de navegação */
+.active-tab {
+    position: relative;
+}
+.active-tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #FFB300, #FF4C4C);
+    border-radius: 2px;
+}
+</style>
+</head>
+<body class="bg-[#1F1F1F] text-[#FFFFFF]">
+
+<!-- Navbar -->
+<header class="bg-[#1F1F1F] text-[#FFFFFF] py-4 fixed top-0 left-0 w-full z-50 shadow-lg">
+  <nav class="container mx-auto flex justify-between items-center px-4">
+    <a href="index.html" class="text-3xl font-bold text-[#FFB300] flex items-center space-x-2">
+      <i class="fas fa-home"></i>
+      <span>RushandoDrop</span>
+    </a>
+    <ul class="hidden md:flex space-x-8 items-center">
+      <li>
+        <a href="index.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-home"></i>
+          <span>Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="times.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-users"></i>
+          <span>Times</span>
+        </a>
+      </li>
+      <li>
+        <a href="campeonato.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300 active-tab" id="nav-campeonato">
+          <i class="fas fa-trophy"></i>
+          <span>Campeonato</span>
+        </a>
+      </li>
+      <li>
+        <a href="tabelas.html" class="flex items-center space-x-2 hover:text-[#FFB300] transition duration-300">
+          <i class="fas fa-table"></i>
+          <span>Tabelas</span>
+        </a>
+      </li>
+    </ul>
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-[#FFB300] hover:text-[#FF4C4C]">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <!-- Menu móvel -->
+  <div id="mobile-menu" class="hidden bg-[#1F1F1F] absolute top-16 left-0 w-full shadow-lg z-40">
+    <ul class="flex flex-col space-y-2 p-4">
+      <li><a href="index.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-home"></i><span>Início</span></a></li>
+      <li><a href="times.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-users"></i><span>Times</span></a></li>
+      <li><a href="campeonato.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2 active-tab"><i class="fas fa-trophy"></i><span>Campeonato</span></a></li>
+      <li><a href="tabelas.html" class="block hover:text-[#FFB300] transition duration-300 flex items-center space-x-2"><i class="fas fa-table"></i><span>Tabelas</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Conteúdo principal -->
+<main class="container mx-auto p-8 pt-20">
+  <h2 class="text-2xl font-semibold mb-4">Campeonatos de PUBG</h2>
+  <!-- Filtros -->
+  <div class="mb-4 flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
+    <div>
+      <label for="modoSelect" class="block mb-1 font-semibold">Modo</label>
+      <select id="modoSelect" class="bg-[#2F2F2F] text-white p-2 rounded">
+        <option value="">Todos</option>
+        <option value="FPP">FPP</option>
+        <option value="TPP">TPP</option>
+      </select>
+    </div>
+    <div>
+      <label for="campeonatoSelect" class="block mb-1 font-semibold">Campeonato</label>
+      <select id="campeonatoSelect" class="bg-[#2F2F2F] text-white p-2 rounded" disabled>
+        <option value="">Selecione</option>
+      </select>
+    </div>
+  </div>
+  <!-- Detalhes do campeonato -->
+  <div id="detalhes-container" class="border border-gray-700 p-4 rounded bg-[#2F2F2F] animate-on-scroll min-h-[100px]">
+    <p>Selecione um campeonato para ver detalhes.</p>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#1F1F1F] text-[#FFFFFF] py-4 text-center mt-16">
+  <p>© 2025 RushandoDrop. Organização independente.</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+}
+
+// Dados dos campeonatos
+const campeonatos = [
+  {
+    id: 'agosto_2025',
+    nome: 'Campeonato PUBG - Agosto 2025',
+    modo: 'FPP',
+    data: 'A definir',
+    horario: 'A definir',
+    tabela: 'A definir',
+    detalhes: 'Campeonato em fase de formação e votação. Detalhes a serem confirmados.'
+  },
+  {
+    id: 'setembro_2025',
+    nome: 'Campeonato PUBG - Setembro 2025',
+    modo: 'FPP',
+    data: 'A definir',
+    horario: 'A definir',
+    tabela: 'A definir',
+    detalhes: 'Campeonato em fase de formação e votação. Detalhes a serem confirmados.'
+  }
+];
+
+// Referências aos elementos
+const modoSelect = document.getElementById('modoSelect');
+const campeonatoSelect = document.getElementById('campeonatoSelect');
+const detalhesContainer = document.getElementById('detalhes-container');
+
+// Popula o select de modo
+const modos = [...new Set(campeonatos.map(c => c.modo))];
+modoSelect.innerHTML = '<option value="">Todos</option>' + modos.map(m => `<option value="${m}">${m}</option>`).join();
+
+// Função para filtrar campeonatos
+const filtrarCampeonatos = () => {
+  const modoFiltro = modoSelect.value;
+  let filtrados = campeonatos;
+  if (modoFiltro) {
+    filtrados = campeonatos.filter(c => c.modo === modoFiltro);
+  }
+  return filtrados;
+}
+
+// Atualiza o select de campeonatos baseado no filtro de modo
+const atualizarCampeonatos = () => {
+  const filtrados = filtrarCampeonatos();
+  campeonatoSelect.innerHTML = '<option value="">Selecione</option>';
+  if (filtrados.length > 0) {
+    campeonatoSelect.disabled = false;
+    campeonatoSelect.innerHTML += filtrados.map(c => `<option value="${c.id}">${c.nome}</option>`).join();
+  } else {
+    campeonatoSelect.disabled = true;
+  }
+  // Limpa detalhes ao mudar
+  detalhesContainer.innerHTML = '<p>Selecione um campeonato para ver detalhes.</p>';
+};
+
+// Evento ao mudar modo
+modoSelect.addEventListener('change', () => {
+  atualizarCampeonatos();
+});
+
+// Evento ao selecionar campeonato
+campeonatoSelect.addEventListener('change', () => {
+  const selectedId = campeonatoSelect.value;
+  const campeonato = campeonatos.find(c => c.id === selectedId);
+  if (campeonato) {
+    detalhesContainer.innerHTML = `
+      <h3 class="text-xl font-semibold mb-2">${campeonato.nome}</h3>
+      <p><strong>Modo:</strong> ${campeonato.modo}</p>
+      <p><strong>Data:</strong> ${campeonato.data}</p>
+      <p><strong>Horário:</strong> ${campeonato.horario}</p>
+      <p><strong>Tabela:</strong> ${campeonato.tabela}</p>
+      <p><strong>Detalhes:</strong> ${campeonato.detalhes}</p>
+    `;
+  } else {
+    detalhesContainer.innerHTML = '<p>Selecione um campeonato para ver detalhes.</p>';
+  }
+});
+
+// Inicializa o filtro
+atualizarCampeonatos();
+
+// Animação ao rolar
+const animateOnScroll = () => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('animate__fadeInUp');
+    }
+  });
+};
+window.addEventListener('scroll', animateOnScroll);
+</script>
+
+</body>
+</html>

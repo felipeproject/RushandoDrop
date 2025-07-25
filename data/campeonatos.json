@@ -1,0 +1,22 @@
+{
+  "campeonatos": [
+    {
+      "id": "agosto_2025",
+      "nome": "Campeonato PUBG - Agosto 2025",
+      "modo": "FPP",
+      "data": "A definir",
+      "horario": "A definir",
+      "tabela": "A definir",
+      "detalhes": "Campeonato em fase de formação e votação. Detalhes a serem confirmados."
+    },
+    {
+      "id": "setembro_2025",
+      "nome": "Campeonato PUBG - Setembro 2025",
+      "modo": "FPP",
+      "data": "A definir",
+      "horario": "A definir",
+      "tabela": "A definir",
+      "detalhes": "Campeonato em fase de formação e votação. Detalhes a serem confirmados."
+    }
+  ]
+}

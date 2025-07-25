@@ -1,0 +1,7 @@
+{
+  "ranking": [
+    { "position": 1, "team": "Team Alpha", "points": 100 },
+    { "position": 2, "team": "Team Beta", "points": 85 },
+    { "position": 3, "team": "Team Gamma", "points": 75 }
+  ]
+}

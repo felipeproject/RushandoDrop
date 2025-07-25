@@ -1,0 +1,25 @@
+{
+  "top_times": [
+    {
+      "nome": "Time Alpha",
+      "logo": "https://placehold.co/600x400/000000/FFFFFF/png",
+      "vitorias": 10,
+      "kills": 215,
+      "dano": 3200
+    },
+    {
+      "nome": "Time Beta",
+      "logo": "https://placehold.co/600x400/000000/FFFFFF/png",
+      "vitorias": 8,
+      "kills": 180,
+      "dano": 2750
+    },
+    {
+      "nome": "Time Gamma",
+      "logo": "https://placehold.co/600x400/000000/FFFFFF/png",
+      "vitorias": 7,
+      "kills": 150,
+      "dano": 2400
+    }
+  ]
+}

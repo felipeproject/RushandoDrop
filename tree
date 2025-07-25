@@ -1,0 +1,19 @@
+RushandoDrop/
+│
+├── campeonato.html        # Página do Campeonato
+├── index.html             # Página Inicial
+├── navbar.html            # Navbar compartilhada entre todas as páginas
+├── tabelas.html           # Página com Tabelas
+├── times.html             # Página com Times
+│
+├── css/                   # Pasta com os estilos
+│   └── style.css          # Arquivo de estilos CSS
+│
+├── data/                  # Pasta com os dados em JSON
+│   ├── campeonato.json    # Dados do campeonato (ex: resultados)
+│   ├── data.json          # Dados gerais (como informações do site)
+│   ├── tabelas.json       # Tabelas do campeonato
+│   └── times.json         # Dados dos times participantes
+│
+└── js/                    # Pasta com scripts JS
+    └── app.js             # Arquivo JavaScript principal
